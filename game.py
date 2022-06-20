@@ -15,20 +15,20 @@ class Game:
         """
         return self.moves[p]
 
-    def play(self, player, move):
+    def play(self, player, move) -> None:
         self.moves[player] = move
         if player == 0:
             self.p1Went = True
         else:
             self.p2Went = True
 
-    def connected(self):
+    def connected(self) -> bool:
         return self.ready
 
-    def bothWent(self):
+    def bothWent(self) -> bool:
         return self.p1Went and self.p2Went
 
-    def winner(self):
+    def winner(self) -> int:
 
         p1 = self.moves[0].upper()[0]
         p2 = self.moves[1].upper()[0]
@@ -49,6 +49,6 @@ class Game:
 
         return winner
 
-    def resetWent(self):
+    def resetWent(self) -> None:
         self.p1Went = False
         self.p2Went = False

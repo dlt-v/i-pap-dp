@@ -14,7 +14,7 @@ except socket.error as e:
     print(e)
 
 s.listen(2)
-print(f"Server Start. Listening on port {port}.")
+print("Waiting for a connection, Server Started")
 
 connected = set()
 games = {}
@@ -24,7 +24,7 @@ idCount = 0
 def threaded_client(conn, p, gameId):
     global idCount
     conn.send(str.encode(str(p)))
-    
+
     reply = ""
     while True:
         try:
